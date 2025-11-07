@@ -7,10 +7,42 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.5; }
         h1 { margin-bottom: 8px; }
+        .grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
+        .row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+        label { display: block; font-weight: 600; margin-top: 6px; }
+        input { padding: 6px 8px; border: 1px solid #ccc; border-radius: 6px; width: 100%; }
+        button { padding: 8px 12px; border: 1px solid #ccc; border-radius: 8px; background: #f7f7f7; cursor: pointer; }
+        button:hover { background: #eee; }
+        .card { border: 1px solid #ddd; border-radius: 10px; padding: 12px; background: #fafafa; }
     </style>
 </head>
 <body>
     <h1>Bank Account</h1>
     
+    <!-- Simple form for creating object -->
+    <div class="grid">
+        <div class="card">
+            <h3>Create a Bank Account</h3>
+
+            <label for="accountNumber">Account Number:</label><br>
+            <input type="text" id="accountNumber" placeholder="e.g. 12345678">
+        
+            <label for="accountOwner">Account Owner Name:</label><br>
+            <input type="text" id="accountOwner" placeholder="e.g. John Doe">
+        
+            <label for="balance">Balance:</label><br>
+            <input type="number" id="balance" placeholder="e.g. 1000.00">
+
+            <label for="isActive">Is Account Active: </label>
+            <input type="text" id="isActive" placeholder="e.g. true or false">
+            
+            <div class="row">
+                <button id="btnAdd">Create Account</button>
+                <button id="btnList">List All Accounts</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
