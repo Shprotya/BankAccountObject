@@ -3,7 +3,7 @@ const accounts = [];
 function BankAccount(accountNumber, accountOwner, initialBalance, activeStatus) {
     const account = {
         // Properties (data)
-        accountNumber: accountNumber,
+        accountNumber: accountNumber, //id in html first, then comes the function value
         accountOwner: accountOwner,
         balance: initialBalance,
         isActive: activeStatus,
@@ -40,7 +40,8 @@ function appendCard(html) {
 function readInputs() {
     const owner = byId('accountOwner').value.trim();
     const accNum = byId('accountNumber').value.trim();
-    const active = byId('isActive').value === 'true';
+    // `isActive` is now a checkbox, so read the boolean directly from `.checked`.
+    const active = byId('isActive').checked;
     const bal = Number(byId('balance').value);
 
     // Validation
@@ -76,6 +77,8 @@ function AddAccount() {
     byId('accountNumber').value = '';
     byId('accountOwner').value = '';
     byId('balance').value = '';
+    // Reset checkbox to default (checked)
+    byId('isActive').checked = true;
 }
 
 function ListAccounts() {
